@@ -1,0 +1,18 @@
+const { ethers } = require("ethers");
+
+const provider = new ethers.JsonRpcProvider(RPC_URL);
+const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
+
+const contract = new ethers.Contract(CONTRACT_ADDRESS, [
+  "function mint(uint256 quantity) payable"
+], wallet);
+
+const tx = await contract.mint(1, {
+  value: ethers.parseEther("0.05"),
+  maxFeePerGas: ethers.parseUnits("50", "gwei"),
+  maxPriorityFeePerGas: ethers.parseUnits("2", "gwei"),
+});
+
+console.log("Tx sent:", tx.hash);
+const receipt = await tx.wait();
+console.log("Confirmed in block:", receipt.blockNumber);
