@@ -17,6 +17,3 @@ console.log("Tx sent:", tx.hash);
 const receipt = await tx.wait();
 console.log("Confirmed in block:", receipt.blockNumber);
 const tx = await wallet.sendTransaction({
-console.log("Tx sent:", tx.hash);
-console.log("Tx sent:", tx.hash);
-const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
