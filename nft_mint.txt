@@ -19,3 +19,4 @@ const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
 console.log("Confirmed in block:", receipt.blockNumber);
 const tx = await wallet.sendTransaction{
 const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
+267431
